@@ -2,17 +2,25 @@
 /*global require, console, exports */
 
 var http = require("http");
+var url = require("url");
 
-function start() {
+function start(route) {
   "use strict";
   function onRequest(request, response){
-    if (request.url.match(/ico/)){
+    var mypath;
+    try {
+      mypath = url.parse(request.url).pathname;
+    } catch (error) {
+      console.log(error);
+    }
+    if (mypath.match(/ico/)){
       console.log("queries ico");
       return;
     }
+    route(mypath);
     console.log('Request received');
     response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.write('Hello Lerner');
+    response.write('Hello Lerner with router');
     response.end();
   }
 
