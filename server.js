@@ -17,7 +17,7 @@ function start(route) {
       console.log("queries ico");
       return;
     }
-    route(mypath);
+    route(mypath, request.method);
     console.log('Request received');
     response.writeHead(200, {'Content-Type': 'text/plain'});
     response.write('Hello Lerner with router');
