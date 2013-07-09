@@ -3,4 +3,6 @@ lerner
 
 Ein webbasiertes Lernprogramm
 
-local geklont
+# history
+
+starting with nodejs playing around
